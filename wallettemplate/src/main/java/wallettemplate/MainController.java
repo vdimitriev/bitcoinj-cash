@@ -16,9 +16,6 @@
 
 package wallettemplate;
 
-import org.bitcoinj.core.listeners.DownloadProgressTracker;
-import org.bitcoinj.core.Coin;
-import org.bitcoinj.utils.MonetaryFormat;
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
@@ -27,6 +24,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
+
+import org.bitcoincashj.core.Coin;
+import org.bitcoincashj.core.listeners.DownloadProgressTracker;
+import org.bitcoincashj.utils.MonetaryFormat;
 import org.fxmisc.easybind.EasyBind;
 import wallettemplate.controls.ClickableBitcoinAddress;
 import wallettemplate.controls.NotificationBarPane;

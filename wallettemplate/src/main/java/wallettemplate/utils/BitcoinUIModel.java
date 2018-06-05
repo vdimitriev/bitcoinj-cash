@@ -16,11 +16,6 @@
 
 package wallettemplate.utils;
 
-import org.bitcoinj.core.listeners.DownloadProgressTracker;
-import org.bitcoinj.wallet.Wallet;
-import org.bitcoinj.wallet.listeners.AbstractWalletEventListener;
-import org.bitcoinj.wallet.listeners.WalletChangeEventListener;
-import org.bitcoinj.core.*;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.beans.property.ReadOnlyObjectProperty;
@@ -28,6 +23,12 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
 import java.util.Date;
+
+import org.bitcoincashj.core.*;
+import org.bitcoincashj.core.listeners.DownloadProgressTracker;
+import org.bitcoincashj.wallet.Wallet;
+import org.bitcoincashj.wallet.listeners.AbstractWalletEventListener;
+import org.bitcoincashj.wallet.listeners.WalletChangeEventListener;
 
 /**
  * A class that exposes relevant bitcoin stuff as JavaFX bindable properties.
