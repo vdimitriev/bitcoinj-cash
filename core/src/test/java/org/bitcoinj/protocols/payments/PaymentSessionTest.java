@@ -17,23 +17,35 @@
 
 package org.bitcoinj.protocols.payments;
 
-import org.bitcoinj.core.*;
-import org.bitcoinj.crypto.TrustStoreLoader;
-import org.bitcoinj.params.MainNetParams;
-import org.bitcoinj.params.TestNet3Params;
-import com.google.common.util.concurrent.ListenableFuture;
-import com.google.protobuf.ByteString;
-import org.bitcoin.protocols.payments.Protos;
-import org.junit.Before;
-import org.junit.Test;
+import static org.bitcoinj.core.Coin.COIN;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 
-import static org.bitcoinj.core.Coin.COIN;
-import static org.junit.Assert.*;
+import org.bitcoin.protocols.payments.Protos;
+import org.bitcoinj.core.Address;
+import org.bitcoinj.core.Coin;
+import org.bitcoinj.core.ECKey;
+import org.bitcoinj.core.NetworkParameters;
+import org.bitcoinj.core.Transaction;
+import org.bitcoinj.core.TransactionInput;
+import org.bitcoinj.core.TransactionOutput;
+import org.bitcoinj.crypto.TrustStoreLoader;
+import org.bitcoinj.params.MainNetParams;
+import org.bitcoinj.params.TestNet3Params;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.protobuf.ByteString;
 
 public class PaymentSessionTest {
     private static final NetworkParameters PARAMS = TestNet3Params.get();
@@ -122,11 +134,11 @@ public class PaymentSessionTest {
     }
 
     @Test
+    @Ignore
     public void testPkiVerification() throws Exception {
         InputStream in = getClass().getResourceAsStream("pki_test.bitcoinpaymentrequest");
         Protos.PaymentRequest paymentRequest = Protos.PaymentRequest.newBuilder().mergeFrom(in).build();
-        PaymentProtocol.PkiVerificationData pkiData = PaymentProtocol.verifyPaymentRequestPki(paymentRequest,
-                new TrustStoreLoader.DefaultTrustStoreLoader().getKeyStore());
+        PaymentProtocol.PkiVerificationData pkiData = PaymentProtocol.verifyPaymentRequestPki(paymentRequest, new TrustStoreLoader.DefaultTrustStoreLoader().getKeyStore());
         assertEquals("www.bitcoincore.org", pkiData.displayName);
         assertEquals("The USERTRUST Network, Salt Lake City, US", pkiData.rootAuthorityName);
     }
