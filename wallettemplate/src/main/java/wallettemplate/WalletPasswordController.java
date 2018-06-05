@@ -15,7 +15,7 @@
 package wallettemplate;
 
 import javafx.application.Platform;
-import org.bitcoinj.crypto.KeyCrypterScrypt;
+
 import com.google.common.primitives.Longs;
 import com.google.protobuf.ByteString;
 import javafx.beans.property.ReadOnlyObjectProperty;
@@ -28,6 +28,8 @@ import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+
+import org.bitcoincashj.crypto.KeyCrypterScrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongycastle.crypto.params.KeyParameter;

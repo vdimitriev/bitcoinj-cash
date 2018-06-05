@@ -14,8 +14,6 @@
 
 package wallettemplate.controls;
 
-import org.bitcoinj.core.Address;
-import org.bitcoinj.uri.BitcoinURI;
 import de.jensd.fx.fontawesome.AwesomeDude;
 import de.jensd.fx.fontawesome.AwesomeIcon;
 import javafx.beans.binding.StringExpression;
@@ -45,6 +43,9 @@ import java.awt.*;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URI;
+
+import org.bitcoincashj.core.Address;
+import org.bitcoincashj.uri.BitcoinURI;
 
 import static javafx.beans.binding.Bindings.convert;
 
